@@ -209,6 +209,55 @@
     .project h3 { margin: 10px 0 5px; font-size: 1.05rem; }
     .project p { color: #aac6d8; font-size: .9rem; }
 
+    .archive-intro { color: #aac6d8; max-width: 680px; }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .game-card {
+      min-width: 0;
+      border: 1px solid var(--line);
+      background: rgba(18, 43, 62, .82);
+      border-radius: 16px;
+      padding: 17px;
+      transition: transform .2s, border-color .2s, background .2s;
+    }
+
+    .game-card:hover {
+      transform: translateY(-4px);
+      border-color: #8edcff88;
+      background: rgba(31, 65, 88, .9);
+    }
+
+    .game-mark { color: var(--blue); font-size: 1.1rem; margin-bottom: 6px; }
+    .game-card h3 { font-size: .95rem; margin: 0 0 7px; }
+    .game-card p { color: #aac6d8; font-size: .8rem; margin: 0; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .stats-card {
+      min-width: 0;
+      border: 1px solid var(--line);
+      background: rgba(18, 43, 62, .82);
+      border-radius: 16px;
+      padding: 12px;
+      overflow: hidden;
+    }
+
+    .stats-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
     .music-player {
       display: flex;
       align-items: center;
@@ -297,7 +346,7 @@
     }
 
     @media (max-width: 650px) {
-      .about-grid, .projects { grid-template-columns: 1fr; }
+      .about-grid, .projects, .game-grid, .stats-grid { grid-template-columns: 1fr; }
       .hero { min-height: 58vh; }
       .panel { padding: 20px; }
       .nav-links { gap: 12px; }
@@ -322,6 +371,8 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#beta-testing">Beta Archive</a>
+        <a href="#github-stats">GitHub Stats</a>
         <a href="#music">Music</a>
         <a href="#contact">Contact</a>
       </div>
@@ -407,8 +458,45 @@
         </p>
       </section>
 
+      <section id="beta-testing">
+        <p class="section-label">03 — worlds explored</p>
+        <h2>Beta Testing Archive ☾</h2>
+        <p class="archive-intro">
+          A little archive of game worlds I've had the chance to explore
+          through beta-testing experiences. Each one is a different universe
+          full of ideas, details, and discoveries. ✧
+        </p>
+        <div class="game-grid">
+          <article class="game-card"><div class="game-mark">✦</div><h3>Duet Night Abyss</h3><p>Beta testing experience</p></article>
+          <article class="game-card"><div class="game-mark">✦</div><h3>Genshin Impact</h3><p>Beta testing experience</p></article>
+          <article class="game-card"><div class="game-mark">✦</div><h3>Wuthering Waves</h3><p>Beta testing experience</p></article>
+          <article class="game-card"><div class="game-mark">✦</div><h3>Honkai Impact 3rd</h3><p>Beta testing experience</p></article>
+          <article class="game-card"><div class="game-mark">✦</div><h3>Honkai: Star Rail</h3><p>Beta testing experience</p></article>
+          <article class="game-card"><div class="game-mark">✦</div><h3>Zenless Zone Zero</h3><p>Beta testing experience</p></article>
+          <article class="game-card"><div class="game-mark">✦</div><h3>Arknights: Endfield</h3><p>Beta testing experience</p></article>
+          <article class="game-card"><div class="game-mark">✦</div><h3>MONGIL: STAR DIVE</h3><p>Beta testing experience</p></article>
+          <article class="game-card"><div class="game-mark">✦</div><h3>Neverness to Everness</h3><p>Beta testing experience</p></article>
+        </div>
+        <p class="muted">✧ Exploring new worlds, noticing little details, and watching ideas take shape — one test at a time. ♡</p>
+      </section>
+
+      <section id="github-stats">
+        <p class="section-label">04 — little numbers, big dreams</p>
+        <h2>GitHub Observatory ✦</h2>
+        <p class="archive-intro">A small snapshot of my coding journey, updated through my public GitHub profile.</p>
+        <div class="stats-grid">
+          <div class="stats-card">
+            <img src="https://github-readme-stats.vercel.app/api?username=FinaAevielle&show_icons=true&hide_border=true&bg_color=10283d&title_color=8edcff&text_color=dff7ff&icon_color=a8d7ed" alt="Aevielle's GitHub statistics" loading="lazy">
+          </div>
+          <div class="stats-card">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=FinaAevielle&layout=compact&hide_border=true&bg_color=10283d&title_color=8edcff&text_color=dff7ff" alt="Most used programming languages on GitHub" loading="lazy">
+          </div>
+        </div>
+        <p class="muted">Statistics are provided by GitHub Readme Stats and may occasionally take a moment to load.</p>
+      </section>
+
       <section id="music">
-        <p class="section-label">03 — a song for the night</p>
+        <p class="section-label">05 — a song for the night</p>
         <h2>Moonlight radio ♫</h2>
         <div class="panel music-player">
           <div class="album" aria-hidden="true">☾</div>
@@ -429,7 +517,7 @@
       </section>
 
       <section id="contact">
-        <p class="section-label">04 — find me among the stars</p>
+        <p class="section-label">06 — find me among the stars</p>
         <h2>Let's say hello ♡</h2>
         <div class="panel">
           <p class="muted">
