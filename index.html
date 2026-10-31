@@ -3,600 +3,452 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#10283d">
-  <meta name="description" content="Welcome to Aevielle's little universe — a dreamy corner for code, creativity, and moonlight.">
-  <title>Aevielle ✦ Little Universe</title>
-
+  <meta name="theme-color" content="#f7f5ef">
+  <meta name="description" content="Aevielle's little corner — anime, code, games, and quiet moments beneath a chapel window.">
+  <title>Aevielle ♡ A Little Chapel of Stars</title>
   <style>
     :root {
-      --night: #091827;
-      --navy: #10283d;
-      --blue: #8edcff;
-      --ice: #dff7ff;
-      --soft: #a8d7ed;
-      --panel: rgba(20, 51, 73, .76);
-      --line: rgba(174, 228, 255, .18);
+      --paper: #f7f5ef;
+      --paper-deep: #eeeae1;
+      --ink: #344653;
+      --muted: #78858b;
+      --blue: #a9cbd9;
+      --blue-deep: #668da2;
+      --blue-pale: #e5f0f2;
+      --gold: #c9ad76;
+      --gold-pale: #eee2c8;
+      --rose: #d9b9b5;
+      --line: rgba(102, 141, 162, .22);
+      --card: rgba(255, 255, 255, .76);
+      --shadow: 0 18px 50px rgba(67, 82, 88, .09);
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
-      color: var(--ice);
+      color: var(--ink);
       background:
-        radial-gradient(ellipse at 15% 5%, #234966 0%, transparent 36%),
-        radial-gradient(ellipse at 90% 45%, #14374e 0%, transparent 35%),
-        var(--night);
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      line-height: 1.7;
+        radial-gradient(circle at 12% 8%, rgba(217,185,181,.22), transparent 26rem),
+        radial-gradient(circle at 88% 20%, rgba(169,203,217,.32), transparent 30rem),
+        linear-gradient(180deg, #fbfaf6 0%, var(--paper) 50%, #f1eee6 100%);
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      line-height: 1.75;
       overflow-x: hidden;
     }
-
-    a { color: var(--blue); text-decoration: none; }
-    a:hover { color: white; }
-
-    #stars {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-      opacity: .8;
+    a { color: var(--blue-deep); text-decoration: none; }
+    a:hover { color: #9c7774; }
+    button { font: inherit; }
+    #petals {
+      position: fixed; inset: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 0; opacity: .42;
     }
-
-    .page {
-      position: relative;
-      z-index: 1;
-      width: min(960px, 90%);
-      margin: auto;
-    }
-
+    .page { position: relative; z-index: 1; width: min(1040px, 91%); margin: auto; }
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding: 24px 0;
-      flex-wrap: wrap;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; padding: 24px 0; flex-wrap: wrap;
     }
-
-    .logo {
-      font-weight: bold;
-      letter-spacing: 2px;
-      color: var(--ice);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      font-size: .88rem;
-    }
-
+    .logo { color: var(--ink); font-weight: 800; letter-spacing: 2px; }
+    .nav-links { display: flex; gap: 18px; flex-wrap: wrap; font-size: .88rem; }
+    .nav-links a { color: #667984; }
     .hero {
-      min-height: 68vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 60px 0 70px;
+      min-height: 590px; display: grid; place-items: center;
+      text-align: center; padding: 65px 0 80px; position: relative;
     }
-
-    .moon {
-      font-size: 4rem;
-      filter: drop-shadow(0 0 24px #8edcff);
-      animation: float 4s ease-in-out infinite;
+    .hero-card {
+      width: min(760px, 100%); padding: 48px 28px 42px;
+      border: 1px solid rgba(201,173,118,.38); border-radius: 48% 48% 28px 28px / 22% 22% 28px 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,.48));
+      box-shadow: var(--shadow); position: relative; overflow: hidden;
     }
-
-    .eyebrow {
-      color: var(--blue);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: .72rem;
+    .hero-card::before, .hero-card::after {
+      content: ""; position: absolute; width: 170px; height: 170px;
+      border: 1px solid rgba(201,173,118,.28); border-radius: 50%;
+      top: 22px; left: 50%; transform: translateX(-50%);
     }
-
+    .hero-card::after { width: 194px; height: 194px; top: 10px; }
+    .halo {
+      width: 112px; height: 112px; border-radius: 50%; margin: 0 auto 24px;
+      display: grid; place-items: center; position: relative; z-index: 1;
+      background: radial-gradient(circle, #fff 0 34%, #e7f1f2 35% 58%, #d6e5e7 59% 62%, transparent 63%);
+      color: var(--gold); font-size: 3.1rem; text-shadow: 0 2px 14px #fff;
+    }
+    .eyebrow, .section-label {
+      color: var(--blue-deep); text-transform: uppercase;
+      letter-spacing: 3px; font-size: .72rem; font-weight: 700;
+    }
     h1 {
-      font-size: clamp(3rem, 9vw, 6rem);
-      line-height: 1.1;
-      margin: 12px 0;
-      letter-spacing: -3px;
-      background: linear-gradient(120deg, white, #a8e6ff, #73b9e8);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      margin: 10px 0; font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500; font-size: clamp(3.1rem, 9vw, 6rem);
+      line-height: 1.05; letter-spacing: -2px; color: #536c79;
     }
-
-    .subtitle {
-      color: var(--soft);
-      max-width: 540px;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 9px;
-      margin-top: 18px;
-    }
-
+    .subtitle { max-width: 550px; margin: 14px auto; color: #71818a; }
+    .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-top: 22px; }
     .chip {
-      border: 1px solid var(--line);
-      background: rgba(133, 205, 241, .08);
-      border-radius: 100px;
-      padding: 5px 13px;
-      font-size: .82rem;
-      color: var(--ice);
+      display: inline-block; border: 1px solid var(--line); background: rgba(255,255,255,.65);
+      border-radius: 100px; padding: 5px 13px; color: #607986; font-size: .8rem;
     }
-
     .button {
-      display: inline-block;
-      margin-top: 25px;
-      border-radius: 12px;
-      padding: 10px 20px;
-      background: #c6efff;
-      color: #10283d;
-      font-weight: bold;
-      transition: transform .2s, box-shadow .2s;
+      display: inline-block; margin-top: 25px; border-radius: 100px;
+      padding: 10px 22px; background: #789aaa; color: white; font-weight: 700;
+      box-shadow: 0 7px 20px rgba(102,141,162,.2); transition: transform .2s, background .2s;
     }
-
-    .button:hover {
-      color: #10283d;
-      transform: translateY(-3px);
-      box-shadow: 0 0 24px #8edcff55;
-    }
-
-    section { padding: 35px 0; }
-
-    .section-label {
-      color: var(--blue);
-      font-size: .75rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
+    .button:hover { color: white; background: #607f91; transform: translateY(-3px); }
+    section { padding: 36px 0; scroll-margin-top: 24px; }
+    .section-label { margin-bottom: 3px; }
     h2 {
-      font-size: clamp(1.7rem, 4vw, 2.3rem);
-      margin: 4px 0 20px;
+      font-family: Georgia, "Times New Roman", serif; font-weight: 500;
+      color: #526b78; font-size: clamp(1.8rem, 4vw, 2.45rem); margin: 4px 0 20px;
     }
-
+    h3 { color: #536d7b; }
     .panel {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      border-radius: 20px;
-      padding: 25px;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 12px 45px #00000012;
+      border: 1px solid var(--line); background: var(--card); border-radius: 22px;
+      padding: 25px; box-shadow: var(--shadow); backdrop-filter: blur(8px);
     }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
+    .small-title { color: var(--blue-deep); font-weight: 800; margin-top: 0; }
+    .muted { color: var(--muted); }
+    .projects, .game-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
+    .project, .game-card, .stat-card {
+      min-width: 0; border: 1px solid var(--line); background: rgba(255,255,255,.7);
+      border-radius: 18px; padding: 19px; box-shadow: 0 8px 25px rgba(67,82,88,.045);
+      transition: transform .2s, border-color .2s, box-shadow .2s;
     }
-
-    .small-title {
-      color: var(--blue);
-      font-weight: bold;
-      margin-top: 0;
+    .project:hover, .game-card:hover { transform: translateY(-4px); border-color: rgba(201,173,118,.7); box-shadow: var(--shadow); }
+    .project-icon { font-size: 1.6rem; }
+    .project h3, .game-card h3 { margin: 8px 0 6px; font-size: 1rem; }
+    .project p, .game-card p { color: var(--muted); font-size: .87rem; margin: 0 0 12px; }
+    .game-topline { color: var(--gold); letter-spacing: 2px; font-size: .85rem; }
+    .game-tag {
+      display: inline-block; color: #728e9b; background: var(--blue-pale);
+      border-radius: 100px; padding: 3px 9px; font-size: .7rem; letter-spacing: .4px;
     }
-
-    .muted { color: #aac6d8; }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+    .archive-note { max-width: 760px; color: var(--muted); }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .stat-card { text-align: center; }
+    .stat-number { font-family: Georgia, serif; font-size: 2rem; color: var(--blue-deep); }
+    .stat-card p { margin: 2px 0; color: var(--muted); font-size: .86rem; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 9px; }
+    .skill {
+      border: 1px solid var(--line); border-radius: 10px; padding: 7px 12px;
+      background: #fffdf9; color: #647d89; font-size: .86rem;
     }
-
-    .project {
-      border: 1px solid var(--line);
-      background: rgba(18, 43, 62, .82);
-      border-radius: 17px;
-      padding: 20px;
-      transition: transform .2s, border-color .2s;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      border-color: #8edcff88;
-    }
-
-    .project-icon { font-size: 1.7rem; }
-    .project h3 { margin: 10px 0 5px; font-size: 1.05rem; }
-    .project p { color: #aac6d8; font-size: .9rem; }
-
-    .archive-intro { color: #aac6d8; max-width: 680px; }
-
-    .game-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .game-card {
-      min-width: 0;
-      border: 1px solid var(--line);
-      background: rgba(18, 43, 62, .82);
-      border-radius: 16px;
-      padding: 17px;
-      transition: transform .2s, border-color .2s, background .2s;
-    }
-
-    .game-card:hover {
-      transform: translateY(-4px);
-      border-color: #8edcff88;
-      background: rgba(31, 65, 88, .9);
-    }
-
-    .game-mark { color: var(--blue); font-size: 1.1rem; margin-bottom: 6px; }
-    .game-card h3 { font-size: .95rem; margin: 0 0 7px; }
-    .game-card p { color: #aac6d8; font-size: .8rem; margin: 0; }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .stats-card {
-      min-width: 0;
-      border: 1px solid var(--line);
-      background: rgba(18, 43, 62, .82);
-      border-radius: 16px;
-      padding: 12px;
-      overflow: hidden;
-    }
-
-    .stats-card img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .music-player {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
+    .music-player { display: flex; align-items: center; gap: 15px; }
     .album {
-      width: 64px;
-      height: 64px;
-      flex-shrink: 0;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      font-size: 2rem;
-      background: linear-gradient(145deg, #b7ebff, #416e91);
-      color: #10283d;
+      width: 66px; height: 66px; flex-shrink: 0; border-radius: 50%;
+      display: grid; place-items: center; font-size: 1.9rem;
+      color: #fff; background: radial-gradient(circle at 35% 30%, #f8f1df, #a9cbd9 65%, #789aaa);
+      border: 4px solid rgba(255,255,255,.8); box-shadow: 0 4px 18px #8aa9b355;
     }
-
     .track { flex: 1; min-width: 0; }
-    .track strong { display: block; }
-    .track span { font-size: .85rem; color: #aac6d8; }
-
+    .track strong { display: block; color: #536d7b; }
+    .track span { font-size: .85rem; color: var(--muted); }
     .play-button {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid var(--line);
-      background: #c6efff;
-      color: #10283d;
-      cursor: pointer;
-      font-size: 1.1rem;
+      width: 47px; height: 47px; border-radius: 50%; border: 0;
+      background: #789aaa; color: white; cursor: pointer; font-size: 1.1rem;
     }
-
-    .play-button:hover { transform: scale(1.06); }
-
-    .progress {
-      height: 4px;
-      background: #34546a;
-      margin-top: 10px;
-      border-radius: 5px;
-      overflow: hidden;
-    }
-
-    #progressFill {
-      height: 100%;
-      width: 0%;
-      background: #a8e6ff;
-    }
-
-    .socials {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
+    .play-button:hover { background: #607f91; transform: scale(1.05); }
+    .progress { height: 4px; background: #e4e8e5; margin-top: 9px; border-radius: 5px; overflow: hidden; }
+    #progressFill { height: 100%; width: 0%; background: var(--gold); }
+    .socials { display: flex; gap: 12px; flex-wrap: wrap; }
     .socials a {
-      border: 1px solid var(--line);
-      padding: 8px 14px;
-      border-radius: 10px;
+      border: 1px solid var(--line); background: rgba(255,255,255,.6);
+      padding: 8px 15px; border-radius: 100px;
     }
-
-    footer {
-      text-align: center;
-      color: #8eb4ca;
-      font-size: .83rem;
-      padding: 50px 0 30px;
+    footer { text-align: center; color: #89969a; font-size: .83rem; padding: 45px 0 30px; }
+    .sparkle {
+      position: fixed; z-index: 3; pointer-events: none; color: var(--gold);
+      animation: floatUp 1.8s ease-out forwards; text-shadow: 0 0 10px #fff;
     }
-
-    .heart {
-      position: fixed;
-      z-index: 2;
-      pointer-events: none;
-      color: #a8e6ff;
-      animation: heartFloat 2.5s ease-out forwards;
-      text-shadow: 0 0 12px #8edcff;
+    @keyframes floatUp { to { opacity: 0; transform: translateY(-55px) scale(.5) rotate(25deg); } }
+    @media (max-width: 720px) {
+      .about-grid, .projects, .game-grid { grid-template-columns: 1fr 1fr; }
+      .hero { min-height: 520px; }
+      .hero-card { border-radius: 38% 38% 24px 24px / 18% 18% 24px 24px; }
+      .nav-links { gap: 11px; }
     }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    @keyframes heartFloat {
-      from { opacity: 1; transform: translateY(0) scale(1); }
-      to { opacity: 0; transform: translateY(-90px) scale(.5); }
-    }
-
-    @media (max-width: 650px) {
+    @media (max-width: 520px) {
       .about-grid, .projects, .game-grid, .stats-grid { grid-template-columns: 1fr; }
-      .hero { min-height: 58vh; }
-      .panel { padding: 20px; }
-      .nav-links { gap: 12px; }
-      h1 { letter-spacing: -1px; }
+      .hero-card { padding: 42px 18px 32px; }
+      .music-player { gap: 10px; }
+      .album { width: 54px; height: 54px; }
     }
-
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        scroll-behavior: auto !important;
-      }
+      *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; }
     }
   </style>
 </head>
-
 <body>
-  <canvas id="stars" aria-hidden="true"></canvas>
-
+  <canvas id="petals" aria-hidden="true"></canvas>
   <div class="page">
     <nav>
-      <a class="logo" href="#">✦ AEVIELLE</a>
+      <a class="logo" href="#">♡ AEVIELLE</a>
       <div class="nav-links">
         <a href="#about">About</a>
+        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#beta-testing">Beta Archive</a>
-        <a href="#github-stats">GitHub Stats</a>
         <a href="#music">Music</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
 
     <header class="hero">
-      <div class="moon" aria-hidden="true">☾</div>
-      <p class="eyebrow">✧ welcome to my little universe ✧</p>
-      <h1>Aevielle</h1>
-      <p class="subtitle">
-        A little soul wandering among stars, writing code
-        and collecting tiny moments of magic. ♡
-      </p>
-      <div class="chips">
-        <span class="chip">❄ Python Developer</span>
-        <span class="chip">☁ Discord Bots</span>
-        <span class="chip">✦ Daydreamer</span>
+      <div class="hero-card">
+        <div class="halo" aria-hidden="true">✧</div>
+        <p class="eyebrow">✦ a quiet little corner of the internet ✦</p>
+        <h1>Aevielle</h1>
+        <p class="subtitle">
+          A little soul wandering between lines of code, distant worlds,
+          and the gentle light of an old chapel window. ♡
+        </p>
+        <div class="chips">
+          <span class="chip">♡ Python Developer</span>
+          <span class="chip">✧ Discord Bot Creator</span>
+          <span class="chip">☾ Game Beta Tester</span>
+        </div>
+        <a class="button" href="#about">Come on in ♡</a>
       </div>
-      <a class="button" href="#about">Enter my universe ↓</a>
     </header>
 
     <main>
       <section id="about">
         <p class="section-label">01 — a little introduction</p>
-        <h2>Behind the moonlight ♡</h2>
+        <h2>Welcome to my little chapel ♡</h2>
         <div class="about-grid">
           <div class="panel">
-            <p class="small-title">☁ Hello, star traveler!</p>
+            <p class="small-title">✧ Hello, dear visitor!</p>
             <p>
-              I'm Aevielle, a beginner developer exploring the world
-              of Python and Discord bot development.
+              I'm Aevielle, a beginner developer exploring Python,
+              Discord bot development, and the little details that make
+              digital spaces feel alive.
             </p>
             <p class="muted">
-              This little corner of the internet is where my code,
-              ideas, and dreams meet under the same moon.
+              This website is my personal scrapbook — a place for projects,
+              games I've explored, and things I'm learning along the way.
             </p>
           </div>
           <div class="panel">
-            <p class="small-title">✧ Things I love</p>
-            <p>♡ Creating Discord bots</p>
-            <p>♡ Learning something new every day</p>
-            <p>♡ Midnight skies and soft music</p>
-            <p>♡ Tiny pixel hearts and blue stars</p>
+            <p class="small-title">♡ Little things I adore</p>
+            <p>✧ Anime, soft colors, and gentle stories</p>
+            <p>✧ Creating Discord bots and tiny tools</p>
+            <p>✧ Exploring new game worlds</p>
+            <p>✧ Music, quiet evenings, and starry skies</p>
           </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <p class="section-label">02 — tools in my satchel</p>
+        <h2>My little skill collection ✦</h2>
+        <div class="panel">
+          <div class="skill-list">
+            <span class="skill">Python</span>
+            <span class="skill">discord.py</span>
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">GitHub</span>
+          </div>
+          <p class="muted">Always learning, always collecting something new. ♡</p>
         </div>
       </section>
 
       <section id="projects">
-        <p class="section-label">02 — little creations</p>
-        <h2>My stardust workshop ✦</h2>
+        <p class="section-label">03 — little creations</p>
+        <h2>My stardust workshop ✧</h2>
         <div class="projects">
           <article class="project">
-            <div class="project-icon">☁️</div>
+            <div class="project-icon">☁</div>
             <h3>Discord Bot Collection</h3>
-            <p>
-              Experiments with commands, helpful features,
-              and little tools for online communities.
-            </p>
+            <p>Experiments with commands, automation, and helpful tools for online communities.</p>
             <span class="chip">Python · discord.py</span>
           </article>
           <article class="project">
-            <div class="project-icon">❄️</div>
-            <h3>Moonlit Utilities</h3>
-            <p>
-              Small Python tools and experiments created
-              while learning and exploring new ideas.
-            </p>
-            <span class="chip">Python</span>
+            <div class="project-icon">♡</div>
+            <h3>Aevielle's Little Website</h3>
+            <p>A personal corner of the internet, made with code and a little affection.</p>
+            <span class="chip">HTML · CSS · JS</span>
           </article>
           <article class="project">
-            <div class="project-icon">♡</div>
-            <h3>Stardust Workshop</h3>
-            <p>
-              A tiny playground for future projects,
-              creative ideas, and unexpected discoveries.
-            </p>
+            <div class="project-icon">✦</div>
+            <h3>Moonlit Utilities</h3>
+            <p>Small Python tools and experiments made while learning and exploring new ideas.</p>
             <span class="chip">In progress</span>
           </article>
         </div>
-        <p class="muted">
-          These are project concepts for now. I'll add links here
-          when the real repositories are ready!
-        </p>
+        <p class="muted">Project links will be added as the repositories become ready.</p>
       </section>
 
       <section id="beta-testing">
-        <p class="section-label">03 — worlds explored</p>
-        <h2>Beta Testing Archive ☾</h2>
-        <p class="archive-intro">
-          A little archive of game worlds I've had the chance to explore
-          through beta-testing experiences. Each one is a different universe
-          full of ideas, details, and discoveries. ✧
+        <p class="section-label">04 — worlds I've visited</p>
+        <h2>Beta Testing Archive ♡</h2>
+        <p class="archive-note">
+          A collection of early game-testing experiences — trying systems,
+          exploring mechanics, and getting a first look at different worlds
+          while they were still taking shape.
         </p>
         <div class="game-grid">
-          <article class="game-card"><div class="game-mark">✦</div><h3>Duet Night Abyss</h3><p>Beta testing experience</p></article>
-          <article class="game-card"><div class="game-mark">✦</div><h3>Genshin Impact</h3><p>Beta testing experience</p></article>
-          <article class="game-card"><div class="game-mark">✦</div><h3>Wuthering Waves</h3><p>Beta testing experience</p></article>
-          <article class="game-card"><div class="game-mark">✦</div><h3>Honkai Impact 3rd</h3><p>Beta testing experience</p></article>
-          <article class="game-card"><div class="game-mark">✦</div><h3>Honkai: Star Rail</h3><p>Beta testing experience</p></article>
-          <article class="game-card"><div class="game-mark">✦</div><h3>Zenless Zone Zero</h3><p>Beta testing experience</p></article>
-          <article class="game-card"><div class="game-mark">✦</div><h3>Arknights: Endfield</h3><p>Beta testing experience</p></article>
-          <article class="game-card"><div class="game-mark">✦</div><h3>MONGIL: STAR DIVE</h3><p>Beta testing experience</p></article>
-          <article class="game-card"><div class="game-mark">✦</div><h3>Neverness to Everness</h3><p>Beta testing experience</p></article>
+          <article class="game-card">
+            <div class="game-topline">✧ 01</div><h3>Duet Night Abyss</h3>
+            <p>Explored early gameplay systems and got a feel for the combat flow, switching between curiosity and chaos in every encounter.</p>
+            <span class="game-tag">Combat & gameplay</span>
+          </article>
+          <article class="game-card">
+            <div class="game-topline">✧ 02</div><h3>Genshin Impact</h3>
+            <p>Spent time exploring the world, trying character abilities, and seeing how elemental reactions shaped the gameplay experience.</p>
+            <span class="game-tag">World exploration</span>
+          </article>
+          <article class="game-card">
+            <div class="game-topline">✧ 03</div><h3>Wuthering Waves</h3>
+            <p>Focused on movement and combat feel, learning how dodges, combos, and Resonator skills came together during testing.</p>
+            <span class="game-tag">Combat mechanics</span>
+          </article>
+          <article class="game-card">
+            <div class="game-topline">✧ 04</div><h3>Honkai Impact 3rd</h3>
+            <p>Experimented with different Valkyrie playstyles and paid attention to the pacing and feel of action stages.</p>
+            <span class="game-tag">Character playstyles</span>
+          </article>
+          <article class="game-card">
+            <div class="game-topline">✧ 05</div><h3>Honkai: Star Rail</h3>
+            <p>Explored turn-based battles, team combinations, and progression systems while getting familiar with the journey.</p>
+            <span class="game-tag">Team building</span>
+          </article>
+          <article class="game-card">
+            <div class="game-topline">✧ 06</div><h3>Zenless Zone Zero</h3>
+            <p>Played around with Agent rotations and combat timing, taking in the game's punchy action and bold urban style.</p>
+            <span class="game-tag">Agent combat</span>
+          </article>
+          <article class="game-card">
+            <div class="game-topline">✧ 07</div><h3>Arknights: Endfield</h3>
+            <p>Got a first look at its systems and world, exploring how tactical decisions and building-focused mechanics fit together.</p>
+            <span class="game-tag">Systems & strategy</span>
+          </article>
+          <article class="game-card">
+            <div class="game-topline">✧ 08</div><h3>MONGIL: STAR DIVE</h3>
+            <p>Explored the early adventure, tried combat encounters, and discovered how creature-collecting elements fit into the experience.</p>
+            <span class="game-tag">Adventure & collection</span>
+          </article>
+          <article class="game-card">
+            <div class="game-topline">✧ 09</div><h3>Neverness to Everness</h3>
+            <p>Looked around its urban world and experimented with available features, getting a feel for its supernatural city setting.</p>
+            <span class="game-tag">World & features</span>
+          </article>
         </div>
-        <p class="muted">✧ Exploring new worlds, noticing little details, and watching ideas take shape — one test at a time. ♡</p>
+        <p class="muted">A small note from each world, kept like pressed flowers between pages. ♡</p>
       </section>
 
       <section id="github-stats">
-        <p class="section-label">04 — little numbers, big dreams</p>
-        <h2>GitHub Observatory ✦</h2>
-        <p class="archive-intro">A small snapshot of my coding journey, updated through my public GitHub profile.</p>
+        <p class="section-label">05 — my coding journey</p>
+        <h2>GitHub Constellation ✦</h2>
         <div class="stats-grid">
-          <div class="stats-card">
-            <img src="https://github-readme-stats.vercel.app/api?username=FinaAevielle&show_icons=true&hide_border=true&bg_color=10283d&title_color=8edcff&text_color=dff7ff&icon_color=a8d7ed" alt="Aevielle's GitHub statistics" loading="lazy">
+          <div class="stat-card">
+            <div class="stat-number">✧</div>
+            <h3>My GitHub</h3>
+            <p>Projects, experiments, and little things I've built.</p>
+            <a href="https://github.com/FinaAevielle" target="_blank" rel="noopener noreferrer">Visit my profile ↗</a>
           </div>
-          <div class="stats-card">
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=FinaAevielle&layout=compact&hide_border=true&bg_color=10283d&title_color=8edcff&text_color=dff7ff" alt="Most used programming languages on GitHub" loading="lazy">
+          <div class="stat-card">
+            <div class="stat-number">♡</div>
+            <h3>Still growing</h3>
+            <p>Every repository is another page in my learning journey.</p>
+            <a href="https://github.com/FinaAevielle?tab=repositories" target="_blank" rel="noopener noreferrer">Explore repositories ↗</a>
           </div>
         </div>
-        <p class="muted">Statistics are provided by GitHub Readme Stats and may occasionally take a moment to load.</p>
+        <p class="muted">Live statistic cards are temporarily omitted because the previous stats image service is paused. This section won't show broken images.</p>
       </section>
 
       <section id="music">
-        <p class="section-label">05 — a song for the night</p>
-        <h2>Moonlight radio ♫</h2>
+        <p class="section-label">06 — a melody for the evening</p>
+        <h2>Little chapel radio ♫</h2>
         <div class="panel music-player">
-          <div class="album" aria-hidden="true">☾</div>
+          <div class="album" aria-hidden="true">♫</div>
           <div class="track">
             <strong id="trackTitle">A little melody</strong>
             <span id="trackStatus">Add your own audio file to begin ♡</span>
-            <div class="progress">
-              <div id="progressFill"></div>
-            </div>
+            <div class="progress"><div id="progressFill"></div></div>
           </div>
-          <button class="play-button" id="playButton"
-            aria-label="Play music" title="Play / Pause">▶</button>
+          <button class="play-button" id="playButton" aria-label="Play music" title="Play / Pause">▶</button>
         </div>
-        <p class="muted">
-          ✦ let's enjoy the music with the stars ✦
-        </p>
+        <p class="muted">✧ let's enjoy the music with the stars ✧</p>
         <audio id="audio" preload="metadata" src="assets/moonlight.mp3"></audio>
       </section>
 
       <section id="contact">
-        <p class="section-label">06 — find me among the stars</p>
-        <h2>Let's say hello ♡</h2>
+        <p class="section-label">07 — leave a little hello</p>
+        <h2>Find me around the internet ♡</h2>
         <div class="panel">
-          <p class="muted">
-            Have a question, a project idea, or just want to say hi?
-            Find me around the internet.
-          </p>
+          <p class="muted">Have a question, a project idea, or just want to say hi? My little corner is always open.</p>
           <div class="socials">
-            <a href="https://github.com/FinaAevielle"
-              target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-            <a href="https://discord.com"
-              target="_blank" rel="noopener noreferrer">Discord ↗</a>
+            <a href="https://github.com/FinaAevielle" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer">Discord ↗</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>Made with ♡, moonlight, and a little bit of stardust.</p>
-      <p>© <span id="year"></span> Aevielle · stay soft, little star ☾</p>
+      <p>Made with ♡, soft prayers, and a little stardust.</p>
+      <p>© <span id="year"></span> Aevielle · may your days be gentle ✧</p>
     </footer>
   </div>
 
   <script>
-    // Twinkling stars
-    const canvas = document.getElementById("stars");
+    // Soft drifting lights
+    const canvas = document.getElementById("petals");
     const ctx = canvas.getContext("2d");
-    let stars = [];
+    let motes = [];
 
-    function createStars() {
+    function resizeCanvas() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
       canvas.style.width = window.innerWidth + "px";
       canvas.style.height = window.innerHeight + "px";
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      stars = Array.from({ length: Math.min(
-        Math.floor(window.innerWidth / 5), 180
-      ) }, () => ({
+      motes = Array.from({ length: Math.min(Math.floor(window.innerWidth / 14), 70) }, () => ({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        size: Math.random() * 1.6 + .3,
-        alpha: Math.random(),
-        speed: Math.random() * .012 + .003
+        r: Math.random() * 2 + .6,
+        speed: Math.random() * .22 + .05,
+        alpha: Math.random() * .5 + .15
       }));
     }
 
-    function drawStars() {
+    function drawMotes() {
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      for (const star of stars) {
-        star.alpha += star.speed;
-        const glow = .25 + Math.abs(Math.sin(star.alpha)) * .75;
+      for (const mote of motes) {
+        mote.y -= mote.speed;
+        if (mote.y < -5) {
+          mote.y = window.innerHeight + 5;
+          mote.x = Math.random() * window.innerWidth;
+        }
         ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(190, 235, 255, ${glow})`;
+        ctx.arc(mote.x, mote.y, mote.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(201, 173, 118, ${mote.alpha})`;
         ctx.fill();
       }
-      requestAnimationFrame(drawStars);
+      requestAnimationFrame(drawMotes);
     }
+    resizeCanvas();
+    drawMotes();
+    window.addEventListener("resize", resizeCanvas);
 
-    createStars();
-    drawStars();
-    window.addEventListener("resize", createStars);
-
-    // Pixel-heart sparkle when clicking
+    // Tiny sparkle on links and buttons
     document.addEventListener("click", (event) => {
       if (event.target.closest("a, button")) {
-        const heart = document.createElement("span");
-        heart.className = "heart";
-        heart.textContent = Math.random() > .5 ? "♡" : "✦";
-        heart.style.left = event.clientX + "px";
-        heart.style.top = event.clientY + "px";
-        heart.style.fontSize = (12 + Math.random() * 12) + "px";
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 2600);
+        const sparkle = document.createElement("span");
+        sparkle.className = "sparkle";
+        sparkle.textContent = Math.random() > .5 ? "✧" : "♡";
+        sparkle.style.left = event.clientX + "px";
+        sparkle.style.top = event.clientY + "px";
+        sparkle.style.fontSize = (12 + Math.random() * 12) + "px";
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 1900);
       }
     });
 
-    // Music player: waits for your audio file
+    // Music player
     const audio = document.getElementById("audio");
     const playButton = document.getElementById("playButton");
     const trackStatus = document.getElementById("trackStatus");
@@ -604,48 +456,35 @@
 
     playButton.addEventListener("click", async () => {
       if (!audio.getAttribute("src")) {
-        trackStatus.textContent =
-          "No song added yet — upload an audio file first ♡";
+        trackStatus.textContent = "No song added yet — upload an audio file first ♡";
         return;
       }
-
       if (audio.paused) {
-        try {
-          await audio.play();
-        } catch {
-          trackStatus.textContent = "Couldn't play this file. Try another ♡";
-        }
+        try { await audio.play(); }
+        catch { trackStatus.textContent = "Couldn't play this file. Check assets/moonlight.mp3 ♡"; }
       } else {
         audio.pause();
       }
     });
-
     audio.addEventListener("play", () => {
       playButton.textContent = "Ⅱ";
       playButton.setAttribute("aria-label", "Pause music");
       trackStatus.textContent = "Now playing ♫";
     });
-
     audio.addEventListener("pause", () => {
       playButton.textContent = "▶";
       playButton.setAttribute("aria-label", "Play music");
       if (!audio.ended) trackStatus.textContent = "Paused ♡";
     });
-
     audio.addEventListener("ended", () => {
       playButton.textContent = "▶";
       trackStatus.textContent = "Finished — play again? ♡";
+      progressFill.style.width = "0%";
     });
-
     audio.addEventListener("timeupdate", () => {
-      if (audio.duration) {
-        progressFill.style.width =
-          (audio.currentTime / audio.duration * 100) + "%";
-      }
+      if (audio.duration) progressFill.style.width = (audio.currentTime / audio.duration * 100) + "%";
     });
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
